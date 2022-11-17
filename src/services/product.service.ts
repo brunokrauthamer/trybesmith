@@ -1,7 +1,7 @@
 import { IProduct } from '../interfaces/IProduct';
 import ProductModel from '../models/product.model';
 
-export default class UserService {
+export default class ProductService {
   public product = new ProductModel();
 
   public async getAll(): Promise<IProduct[]> {
