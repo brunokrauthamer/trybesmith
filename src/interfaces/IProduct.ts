@@ -2,5 +2,5 @@ export interface IProduct {
   id?: number;
   name: string;
   amount: string;
-  orderId: string | null;
+  orderId?: string | null;
 }
