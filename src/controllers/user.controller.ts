@@ -10,4 +10,13 @@ export default class UserController {
     const token = await this.userService.create(user);
     res.status(201).json({ token });
   }
+
+  public async login(req: Request, res: Response) {
+    const user = req.body;
+    const response = await this.userService.login(user);
+    if (response === 'Username or password invalid') {
+      return res.status(401).json({ message: response });
+    }
+    res.status(200).json({ token: response });
+  }
 }
