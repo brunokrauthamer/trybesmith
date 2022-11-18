@@ -1,4 +1,4 @@
-import { RowDataPacket } from 'mysql2';
+import { RowDataPacket, ResultSetHeader } from 'mysql2';
 import mysql from './connection';
 import { IOrder } from '../interfaces/IOrder';
 
@@ -17,14 +17,13 @@ export default class OrderModel {
     return rows;
   }
 
-  // async create(product: IProduct): Promise<IProduct> {
-  //   const { name, amount } = product;
-  //   const response = await this.connection.execute<ResultSetHeader>(
-  //     'INSERT INTO Trybesmith.Products (name, amount) VALUES (?, ?)',
-  //     [name, amount],
-  //   );
-  //   const [dataInserted] = response;
-  //   const { insertId } = dataInserted;
-  //   return { id: insertId, ...product };
-  // }
+  async create(userId: number) {
+    const response = await this.connection.execute<ResultSetHeader>(
+      'INSERT INTO Trybesmith.Orders (userId) VALUES (?)',
+      [userId],
+    );
+    const [dataInserted] = response;
+    const { insertId } = dataInserted;
+    return { id: insertId };
+  }
 }

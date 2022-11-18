@@ -13,4 +13,8 @@ export default class ProductService {
     const response = await this.product.create(product);
     return response;  
   }
+
+  public async update(productId: number, orderId: number): Promise<void> {
+    await this.product.update(productId, orderId);
+  }
 }

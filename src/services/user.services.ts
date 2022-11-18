@@ -28,6 +28,6 @@ export default class UserService {
       username: user.username,
       level: user.level,
       classe: user.classe };
-    return this.jwt.sign(payload, 'String(process.env.JWT_SECRET)');
+    return this.jwt.sign(payload, 'SECRET');
   }
 }

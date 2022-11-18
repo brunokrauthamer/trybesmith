@@ -9,8 +9,8 @@ export default class OrderService {
     return orders;
   }
 
-  // public async create(product: IOrder):Promise<IOrder> {
-  //   const response = await this.order.create(product);
-  //   return response;  
-  // }
+  public async create(userId: number) {
+    const response = await this.order.create(userId);
+    return response;  
+  }
 }
